@@ -48,34 +48,36 @@ A aplicação é construída com uma base moderna de JavaScript e React, com foc
 #### Base da Aplicação (Incluso no React)
 
 * **`React (v18+)`**: A biblioteca principal para a construção da interface.
-    * **Hooks (`useState`, `useEffect`, etc.)**: Utilizados para gerenciar estado, ciclo de vida e outros recursos do React. **Não requerem instalação separada**, pois são parte nativa da biblioteca e são importados diretamente do pacote `react`.
-    * **`Context API`**: Usada para o gerenciamento de estado global, como informações de autenticação do usuário, evitando o "prop drilling".
+    * **Hooks (`useState`, `useEffect`, etc.)**: Utilizados para gerenciar estado e ciclo de vida dos componentes.
+    * **`Context API`**: Usada para o gerenciamento de estado global, como informações de autenticação do usuário.
 * **`JavaScript (ES6+)`**: Linguagem de programação base.
 * **`LocalStorage`**: API do navegador utilizada para persistência de dados no lado do cliente.
 
 #### Dependências Principais (Instaladas via NPM)
 
+* **`@mui/material`**: A biblioteca principal de componentes React do Material-UI, que serve como base para nosso Design System.
+* **`@emotion/react` & `@emotion/styled`**: A engine de estilização padrão do MUI (CSS-in-JS).
+* **`@mui/icons-material`**: Biblioteca de ícones SVG prontos para uso.
 * **`Vite`**: Ferramenta de build de última geração que oferece um ambiente de desenvolvimento extremamente rápido.
-* **`React Router Dom`**: Biblioteca para a criação de rotas, permitindo a navegação SPA (Single Page Application) entre as diferentes páginas.
-* **`CSS Modules`**: Padrão de estilização adotado para garantir que os estilos de cada componente sejam escopados localmente, evitando conflitos globais.
-* **`Axios` (Opcional, mas recomendado)**: Cliente HTTP para realizar as chamadas à API externa do ViaCEP de forma mais robusta e com melhor tratamento de erros.
+* **`React Router Dom`**: Biblioteca para a criação de rotas, permitindo a navegação SPA (Single Page Application).
+* **`Axios` (Opcional, mas recomendado)**: Cliente HTTP para realizar as chamadas à API externa do ViaCEP.
 
 ---
 
 ### 4. APIs Utilizadas
 
--   **ViaCEP (API Externa)**: Integrada para a funcionalidade de preenchimento automático de endereço a partir de um CEP. Isso melhora a experiência do usuário e a qualidade dos dados de localização.
--   **API Local (Simulada com `LocalStorage`)**: Para este MVP, todas as operações de criação, leitura, atualização e exclusão (CRUD) de usuários e locais de coleta são gerenciadas localmente no navegador através da Web Storage API (`localStorage`). Uma futura versão do projeto substituirá essa simulação por uma API RESTful completa com um banco de dados dedicado.
+-   **ViaCEP (API Externa)**: Integrada para a funcionalidade de preenchimento automático de endereço a partir de um CEP.
+-   **API Local (Simulada com `LocalStorage`)**: Para este MVP, todas as operações de CRUD de usuários e locais de coleta são gerenciadas localmente no navegador.
 
 ---
 
 ### 5. Estrutura e Padrões de Projeto
 
-A arquitetura do projeto foi pensada para ser escalável e de fácil manutenção, seguindo boas práticas do mercado.
+A arquitetura do projeto foi pensada para ser escalável e de fácil manutenção.
 
--   **Atomic Design**: A estrutura de componentes é organizada em **Atoms**, **Molecules**, **Organisms**, **Templates** e **Pages**, garantindo o máximo de reuso e desacoplamento.
--   **Responsividade (Mobile First)**: A estilização foi desenvolvida priorizando a experiência em dispositivos móveis e depois adaptada para telas maiores (tablets e desktops).
--   **Componentização**: Toda a aplicação é dividida em componentes funcionais e reutilizáveis.
+-   **Biblioteca de Componentes (Material-UI)**: Adotamos o Material-UI como nossa principal biblioteca de UI. Isso nos fornece um conjunto rico e testado de componentes (nossos "átomos" e "moléculas" de base), acelerando o desenvolvimento e garantindo consistência visual.
+-   **Estrutura Inspirada no Atomic Design**: Embora usemos componentes prontos, a organização das nossas pastas (`pages`, `organisms`, etc.) e a forma como combinamos os componentes se inspira em conceitos do Atomic Design para criar partes maiores e reutilizáveis da interface.
+-   **Responsividade (Mobile First)**: A responsividade é tratada como prioridade, aproveitando os recursos do sistema de Grid e os componentes já responsivos do Material-UI, com ajustes pontuais quando necessário.
 
 ---
 
@@ -121,13 +123,11 @@ npm run dev
 
 ### 8. Melhorias Futuras
 
-Este MVP é a base para uma aplicação muito maior. Algumas melhorias que podem ser implementadas no futuro são:
-
 -   **Integração com um Back-end real**: Substituir o `localStorage` por uma API REST e um banco de dados.
--   **Mapa Interativo**: Utilizar a latitude e longitude para exibir os pontos de coleta em um mapa (com bibliotecas como Leaflet.js ou Google Maps API).
--   **Perfil de Usuário**: Uma página onde o usuário pode ver seu histórico de contribuições e gerenciar seus dados.
--   **Gamificação**: Sistema de pontos e medalhas para incentivar a reciclagem.
--   **Testes Automatizados**: Implementação de testes unitários e de integração para garantir a qualidade do código.
+-   **Mapa Interativo**: Exibir os pontos de coleta em um mapa.
+-   **Perfil de Usuário**: Página para o usuário gerenciar seus dados e histórico.
+-   **Gamificação**: Sistema de pontos para incentivar a reciclagem.
+-   **Testes Automatizados**: Implementação de testes para garantir a qualidade do código.
 
 ---
 
