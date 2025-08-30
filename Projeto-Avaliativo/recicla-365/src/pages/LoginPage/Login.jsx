@@ -8,10 +8,12 @@ import {
     TextField,
     Button,
 } from '@mui/material';
+import { useAuth } from '../../contexts/AuthContext.jsx';
 
 const Login = () => {
-
     const navigate = useNavigate();
+    const { login } = useAuth();
+
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -23,21 +25,12 @@ const Login = () => {
             return;
         }
 
-        const usersData = localStorage.getItem('recicla365_users');
-        if (usersData) {
-            const users = JSON.parse(usersData);
-            const userFound = users.find(
-                (user) => user.email === email && user.senha === password
-            );
+        const success = login(email, password);
 
-            if (userFound) {
-                alert(`Login bem-sucedido! Bem-vindo, ${userFound.nome}!`);
-
-            } else {
-                alert("E-mail ou senha inválidos.");
-            }
+        if (success) {
+            navigate('/dashboard');
         } else {
-            alert("Nenhum usuário cadastrado.");
+            alert("E-mail ou senha inválidos.");
         }
     };
 
@@ -48,7 +41,6 @@ const Login = () => {
                     <Typography component="h1" variant="h5">
                         Entrar no Recicla365
                     </Typography>
-
                     <Box component="form" onSubmit={handleSubmit} noValidate className={styles.form}>
                         <TextField
                             margin="normal"
@@ -56,9 +48,6 @@ const Login = () => {
                             fullWidth
                             id="email"
                             label="Endereço de E-mail"
-                            name="email"
-                            autoComplete="email"
-                            autoFocus
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                         />
@@ -69,12 +58,9 @@ const Login = () => {
                             name="password"
                             label="Senha"
                             type="password"
-                            id="password"
-                            autoComplete="current-password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                         />
-
                         <Button
                             type="submit"
                             fullWidth
@@ -83,7 +69,6 @@ const Login = () => {
                         >
                             Entrar
                         </Button>
-
                         <Button
                             type="button"
                             fullWidth
