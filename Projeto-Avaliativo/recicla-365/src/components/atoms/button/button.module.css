@@ -1,0 +1,9 @@
+.btn {
+    padding: 12px 24px;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: Inter,system-ui,Avenir,Helvetica,Arial,sans-serif;
+    
+}
