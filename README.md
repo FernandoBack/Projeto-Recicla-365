@@ -2,7 +2,7 @@
 
 ### MVP de uma plataforma para gerenciamento e localização de pontos de coleta de materiais recicláveis.
 
-![Badge de Status do Deploy](https://vercel.com/fernando-backs-projects/projeto-recicla-365/badge)
+![Badge de Status do Deploy]([https://projeto-recicla-365.vercel.app/))
 ![Licença: MIT](https://img.shields.io/badge/Licença-MIT-blue.svg)
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![MUI](https://img.shields.io/badge/MUI-007FFF?style=for-the-badge&logo=mui&logoColor=white)
