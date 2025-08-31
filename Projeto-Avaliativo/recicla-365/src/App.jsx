@@ -4,8 +4,6 @@ import Login from './pages/LoginPage/Login';
 import Cadastro from './pages/CadastroUsuarioPage/Cadastro';
 import Dashboard from './pages/DashboardPage/Dashboard';
 import ManagePoints from './pages/ManagePointsPage/ManagePoints';
-
-// Components & Templates
 import ProtectedRoute from './components/auth/ProtectedRoute/ProtectedRoute';
 import MainLayout from './components/templates/MainLayout/MainLayout';
 

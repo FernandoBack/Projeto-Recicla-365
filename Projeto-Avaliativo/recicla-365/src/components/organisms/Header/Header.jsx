@@ -1,48 +1,63 @@
+// src/components/organisms/Header/Header.jsx
+
 import { AppBar, Toolbar, Typography, Button, Box } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
-import styles from './Header.module.css';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../../../contexts/AuthContext';
+import styles from './Header.module.css';
 
 const Header = () => {
     const navigate = useNavigate();
     const { user, logout } = useAuth();
+    const location = useLocation();
 
     const handleLogout = () => {
         logout();
         navigate('/');
     };
 
-
-    const appBarClassName = user ? styles.appBarPrivate : styles.appBarPublic;
-
     return (
-        <AppBar position="static" className={appBarClassName}>
+        <AppBar position="static">
             <Toolbar>
-                <Typography
-                    variant="h6"
-                    component="div"
-                    sx={{ flexGrow: 1, cursor: 'pointer' }}
 
-                    onClick={() => navigate('/')}
-                >
-                    Recicla365 ♻️
-                </Typography>
-                <Box>
-                    {user ? (
-
-                        <>
-                            <Button color="inherit" onClick={() => navigate('/dashboard')}>Dashboard</Button>
-                            <Button color="inherit" onClick={() => navigate('/')}>Home</Button>
-                            <Button color="inherit" onClick={handleLogout}>Sair</Button>
-                        </>
-                    ) : (
-
-                        <>
-                            <Button color="inherit" onClick={() => navigate('/login')}>Entrar</Button>
-                            <Button color="inherit" onClick={() => navigate('/cadastro')}>Cadastre-se</Button>
-                        </>
-                    )}
+                <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+                    <img
+                        src="/public/logo.png"
+                        style={{ height: '40px', cursor: 'pointer' }}
+                        onClick={() => navigate('/')}
+                    />
                 </Box>
+
+                {/* Logo para telas pequenas (se desejar uma versão menor ou diferente) */}
+                <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+                    <img
+                        src="/public/logo.png"
+                        alt="Recicla365 Logo"
+                        style={{ height: '30px', cursor: 'pointer' }}
+                        onClick={() => navigate('/')}
+                    />
+                </Box>
+
+                {user ? (
+                    <Box sx={{ display: 'flex' }}>
+                        {location.pathname !== '/dashboard' && (
+                            <Button color="inherit" onClick={() => navigate('/dashboard')}>
+                                Gerenciar Locais de Coleta
+                            </Button>
+                        )}
+                        <Button color="inherit" onClick={handleLogout}>
+                            Sair
+                        </Button>
+                    </Box>
+                ) : (
+                    <Box sx={{ display: 'flex' }}>
+                        <Button color="inherit" onClick={() => navigate('/cadastro')}>
+                            Cadastro
+                        </Button>
+                        <Button color="inherit" onClick={() => navigate('/login')}>
+                            Login
+                        </Button>
+                    </Box>
+                )}
             </Toolbar>
         </AppBar>
     );
