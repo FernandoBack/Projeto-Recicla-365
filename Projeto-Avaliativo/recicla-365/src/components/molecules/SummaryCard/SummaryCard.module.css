@@ -1,0 +1,27 @@
+.card {
+    width: 100%;
+}
+
+.cardContent {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.iconBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e0f2fe;
+    border-radius: 50%;
+    padding: 12px;
+    color: #0284c7;
+}
+
+.value {
+    font-weight: 700 !important;
+}
+
+.title {
+    font-size: 14px !important;
+}
