@@ -1,10 +1,10 @@
-import { AppBar, Toolbar, Typography, Button, Box } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
-import styles from './Header.module.css';
+import { AppBar, Toolbar, Button, Box } from '@mui/material';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../../../contexts/AuthContext';
 
 const Header = () => {
     const navigate = useNavigate();
+    const location = useLocation();
     const { user, logout } = useAuth();
 
     const handleLogout = () => {
@@ -12,27 +12,26 @@ const Header = () => {
         navigate('/');
     };
 
-
-    const appBarClassName = user ? styles.appBarPrivate : styles.appBarPublic;
-
     return (
-        <AppBar position="static" className={appBarClassName}>
+        <AppBar position="static">
             <Toolbar>
-                <Typography
-                    variant="h6"
-                    component="div"
-                    sx={{ flexGrow: 1, cursor: 'pointer' }}
 
-                    onClick={() => navigate('/')}
-                >
-                    Recicla365 ♻️
-                </Typography>
+                <Box sx={{ flexGrow: 1, cursor: 'pointer' }} onClick={() => navigate('/')}>
+                    <img
+                        src="/public/logo.png"
+                        alt="Recicla365 Logo"
+                        style={{ height: '40px', display: 'block' }}
+                    />
+                </Box>
+
                 <Box>
                     {user ? (
 
                         <>
-                            <Button color="inherit" onClick={() => navigate('/dashboard')}>Dashboard</Button>
-                            <Button color="inherit" onClick={() => navigate('/')}>Home</Button>
+                            {location.pathname !== '/dashboard' && (
+                                <Button color="inherit" onClick={() => navigate('/dashboard')}>Gerenciar Pontos de Coleta</Button>
+                            )}
+
                             <Button color="inherit" onClick={handleLogout}>Sair</Button>
                         </>
                     ) : (

@@ -1,0 +1,22 @@
+.pageContainer {
+
+
+    min-height: calc(100vh - 64px);
+    padding: 24px;
+    box-sizing: border-box;
+}
+
+.contentPaper {
+
+    padding: 24px;
+    border-radius: 12px !important;
+    /* Bordas mais arredondadas */
+}
+
+.headerBox {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}

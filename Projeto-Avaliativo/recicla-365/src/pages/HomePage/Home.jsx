@@ -1,27 +1,33 @@
 import { Box, Typography, Button, Container } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
+import styles from './Home.module.css';
 
 const Home = () => {
-    const navigate = useNavigate();
+
     return (
-        <Container maxWidth="md">
-            <Box sx={{ py: 8, textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4 }}>
-                <Typography variant="h2" component="h1" fontWeight="bold">
-                    Junte-se ao movimento Recicla365
-                </Typography>
-                <Typography variant="h5" color="text.secondary">
-                    Encontre pontos de coleta, cadastre novos locais e ajude a construir um futuro mais sustentável.
-                </Typography>
-                <Button
-                    variant="contained"
-                    size="large"
-                    onClick={() => navigate('/cadastro')}
-                    sx={{ backgroundColor: '#2a9d8f', '&:hover': { backgroundColor: '#264653' } }}
-                >
-                    Comece a Reciclar Agora
-                </Button>
-            </Box>
-        </Container>
+
+        <div className={styles.homeContainer}>
+            <Container maxWidth="lg" sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                minHeight: 'calc(100vh - 64px)'
+            }}
+            >
+                <Box sx={{ my: 4, textAlign: 'center', color: 'white' }}>
+                    <Typography variant="h2" component="h1" gutterBottom sx={{ fontWeight: 'bold' }}>
+                        Recicle, Transforme, Inspire.
+                    </Typography>
+                    <Typography variant="h5" sx={{ mb: 4, maxWidth: '700px', mx: 'auto' }}>
+                        Junte-se à comunidade Recicla365 e faça a diferença no seu bairro. Encontre pontos de coleta, registre novos locais e acompanhe o impacto positivo da sua atitude.
+                    </Typography>
+
+
+
+                </Box>
+
+
+            </Container>
+        </div>
     );
 };
 
