@@ -18,7 +18,7 @@ const Header = () => {
 
                 <Box sx={{ flexGrow: 1, cursor: 'pointer' }} onClick={() => navigate('/')}>
                     <img
-                        src="/public/logo1.png"
+                        src="/logo1.png"
                         alt="Recicla365 Logo - Um símbolo de reciclagem estilizado com uma folha verde"
                         style={{ height: '40px', display: 'block' }}
                     />
