@@ -1,3 +1,7 @@
-.appBar {
+.appBarPublic {
     background-color: #264653 !important;
+}
+
+.appBarPrivate {
+    background-color: #2a9d8f !important;
 }

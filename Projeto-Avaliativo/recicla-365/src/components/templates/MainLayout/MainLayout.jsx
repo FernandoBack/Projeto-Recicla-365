@@ -1,4 +1,4 @@
-import Header from '../organisms/Header/Header';
+import Header from '../../organisms/Header/Header';
 import { Outlet } from 'react-router-dom';
 
 const PublicLayout = () => {
