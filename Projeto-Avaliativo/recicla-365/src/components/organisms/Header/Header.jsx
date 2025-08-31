@@ -7,6 +7,8 @@ import styles from './Header.module.css';
 
 const Header = () => {
     const navigate = useNavigate();
+
+    const location = useLocation();
     const { user, logout } = useAuth();
     const location = useLocation();
 

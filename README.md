@@ -1,9 +1,11 @@
 # Recicla365 ♻️
 
-**MVP de uma plataforma para gerenciamento e localização de pontos de coleta de materiais recicláveis.**
+### MVP de uma plataforma para gerenciamento e localização de pontos de coleta de materiais recicláveis.
 
-[![Licença](https://img.shields.io/badge/licen%C3%A7a-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![Vercel](https://therealsujitk-vercel-badge.vercel.app/?app=projeto-recicla-365)](https://projeto-recicla-365.vercel.app/)
+![Badge de Status do Deploy](https://vercel.com/fernando-backs-projects/projeto-recicla-365/badge)
+![Licença: MIT](https://img.shields.io/badge/Licença-MIT-blue.svg)
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![MUI](https://img.shields.io/badge/MUI-007FFF?style=for-the-badge&logo=mui&logoColor=white)
 
 ---
 
@@ -11,126 +13,109 @@
 
 - [1. Sobre o Projeto](#1-sobre-o-projeto)
 - [2. Layout da Aplicação](#2-layout-da-aplicação)
-- [3. Tecnologias Utilizadas](#3-tecnologias-utilizadas)
-- [4. APIs Utilizadas](#4-apis-utilizadas)
-- [5. Estrutura e Padrões de Projeto](#5-estrutura-e-padrões-de-projeto)
-- [6. Funcionalidades](#6-funcionalidades)
-- [7. Como Executar o Projeto](#7-como-executar-o-projeto)
-- [8. Melhorias Futuras](#8-melhorias-futuras)
-- [9. Licença](#9-licença)
+- [3. Funcionalidades](#3-funcionalidades)
+- [4. Tecnologias Utilizadas](#4-tecnologias-utilizadas)
+- [5. Estrutura de Pastas](#5-estrutura-de-pastas)
+- [6. Como Executar o Projeto](#6-como-executar-o-projeto)
+- [7. Melhorias Futuras](#7-melhorias-futuras)
+- [8. Licença](#8-licença)
 
 ---
 
-### 1. Sobre o Projeto
+### **1. Sobre o Projeto**
 
-O **Recicla365** é uma plataforma criada para resolver um problema urbano comum: a dificuldade de encontrar pontos de coleta de lixo reciclável e a falta de engajamento da comunidade no processo de reciclagem. A aplicação conecta pessoas que desejam reciclar com locais de coleta verificados, permitindo que usuários cadastrem novos pontos e gerenciem suas contribuições para um ambiente mais sustentável.
+O **Recicla365** nasceu da necessidade de centralizar informações sobre o descarte correto de resíduos, conectando cidadãos engajados com o meio ambiente a pontos de coleta eficientes. A plataforma resolve o problema da desinformação, facilitando a busca por locais de reciclagem e permitindo que a própria comunidade contribua, cadastrando e gerenciando novos pontos de coleta.
 
-Este projeto é o **MVP (Minimum Viable Product)** do front-end da aplicação, desenvolvido como parte do projeto avaliativo do Módulo 1 do curso do LAB365.
-
----
-
-### 2. Layout da Aplicação
-
-*(Esta seção será atualizada com screenshots e/ou GIFs da aplicação quando as telas principais estiverem concluídas.)*
-
-**Layout Mobile**
-![Layout Mobile](https://via.placeholder.com/300x600.png?text=Preview+Mobile)
-
-**Layout Desktop**
-![Layout Desktop](https://via.placeholder.com/800x450.png?text=Preview+Desktop)
+Este projeto é um MVP (Mínimo Produto Viável) completo que demonstra todas as funcionalidades essenciais de uma aplicação web moderna.
 
 ---
 
-### 3. Tecnologias Utilizadas
+### **2. Layout da Aplicação**
 
-A aplicação é construída com uma base moderna de JavaScript e React, com foco em boas práticas e ferramentas que otimizam o desenvolvimento.
 
-#### Base da Aplicação (Incluso no React)
-
-* **`React (v18+)`**: A biblioteca principal para a construção da interface.
-    * **Hooks (`useState`, `useEffect`, etc.)**: Utilizados para gerenciar estado e ciclo de vida dos componentes.
-    * **`Context API`**: Usada para o gerenciamento de estado global, como informações de autenticação do usuário.
-* **`JavaScript (ES6+)`**: Linguagem de programação base.
-* **`LocalStorage`**: API do navegador utilizada para persistência de dados no lado do cliente.
-
-#### Dependências Principais (Instaladas via NPM)
-
-* **`@mui/material`**: A biblioteca principal de componentes React do Material-UI, que serve como base para nosso Design System.
-* **`@emotion/react` & `@emotion/styled`**: A engine de estilização padrão do MUI (CSS-in-JS).
-* **`@mui/icons-material`**: Biblioteca de ícones SVG prontos para uso.
-* **`Vite`**: Ferramenta de build de última geração que oferece um ambiente de desenvolvimento extremamente rápido.
-* **`React Router Dom`**: Biblioteca para a criação de rotas, permitindo a navegação SPA (Single Page Application).
-* **`Axios` (Opcional, mas recomendado)**: Cliente HTTP para realizar as chamadas à API externa do ViaCEP.
+| Página de Login | Dashboard | Gerenciamento (CRUD) |
+| :---: | :---: | :---: |
+| https://github.com/FernandoBack/Projeto-Recicla-365/blob/main/.github/images/Login.png | https://github.com/FernandoBack/Projeto-Recicla-365/blob/main/.github/images/Dashboar.png| https://github.com/FernandoBack/Projeto-Recicla-365/blob/main/.github/images/Gerenciamento_CRUD.png |
 
 ---
 
-### 4. APIs Utilizadas
+### **3. Funcionalidades**
 
--   **ViaCEP (API Externa)**: Integrada para a funcionalidade de preenchimento automático de endereço a partir de um CEP.
--   **API Local (Simulada com `LocalStorage`)**: Para este MVP, todas as operações de CRUD de usuários e locais de coleta são gerenciadas localmente no navegador.
-
----
-
-### 5. Estrutura e Padrões de Projeto
-
-A arquitetura do projeto foi pensada para ser escalável e de fácil manutenção.
-
--   **Biblioteca de Componentes (Material-UI)**: Adotamos o Material-UI como nossa principal biblioteca de UI. Isso nos fornece um conjunto rico e testado de componentes (nossos "átomos" e "moléculas" de base), acelerando o desenvolvimento e garantindo consistência visual.
--   **Estrutura Inspirada no Atomic Design**: Embora usemos componentes prontos, a organização das nossas pastas (`pages`, `organisms`, etc.) e a forma como combinamos os componentes se inspira em conceitos do Atomic Design para criar partes maiores e reutilizáveis da interface.
--   **Responsividade (Mobile First)**: A responsividade é tratada como prioridade, aproveitando os recursos do sistema de Grid e os componentes já responsivos do Material-UI, com ajustes pontuais quando necessário.
+- [x] **Sistema de Autenticação Completo:** Cadastro de novos usuários com validação de CPF único e Login.
+- [x] **Gerenciamento de Estado Global:** Uso da Context API do React para um controle de autenticação robusto em toda a aplicação.
+- [x] **Roteamento Inteligente:** Navegação protegida para usuários autenticados e um layout que se adapta dinamicamente ao status de login.
+- [x] **Integração com API Externa:** Preenchimento automático de endereço nos formulários através da API ViaCEP.
+- [x] **Dashboard Analítico:** Exibição de cards com dados dinâmicos (total de usuários e locais cadastrados) e uma lista de visualização dos pontos de coleta.
+- [x] **CRUD Completo:** Funcionalidades para Criar, Ler, Atualizar e Deletar pontos de coleta, com formulários em modais para uma melhor experiência do usuário.
 
 ---
 
-### 6. Funcionalidades
+### **4. Tecnologias Utilizadas**
 
--   [ ] **Autenticação de Usuários**: Sistema de Login e Cadastro.
--   [ ] **Gerenciamento de Usuários**: Carregamento de dados iniciais via `localStorage` e cadastro de novos usuários com CPF único.
--   [ ] **Dashboard**: Visão geral com estatísticas (total de usuários e locais) e uma listagem simples dos pontos de coleta.
--   [ ] **CRUD de Locais de Coleta**:
-    -   [ ] **Cadastrar** um novo ponto de coleta com busca de endereço via CEP.
-    -   [ ] **Listar** todos os pontos de coleta com opções de ação.
-    -   [ ] **Editar** as informações de um ponto de coleta existente.
-    -   [ ] **Excluir** um ponto de coleta.
--   [ ] **Navegação Protegida**: Rotas que só podem ser acessadas por usuários autenticados.
+Abaixo estão as principais tecnologias e bibliotecas utilizadas no desenvolvimento do Recicla365:
+
+- **React (v18):** Biblioteca principal para a construção da interface de usuário.
+- **Vite:** Ferramenta de build extremamente rápida para um ambiente de desenvolvimento moderno.
+- **React Router DOM (v6):** Para gerenciamento de rotas e navegação no estilo SPA (Single Page Application).
+- **Material-UI (MUI v5):** Biblioteca de componentes para a criação de um design system consistente e responsivo.
+- **Context API:** Para gerenciamento de estado global, especificamente para o contexto de autenticação.
+- **Vercel:** Plataforma para deploy contínuo (CI/CD) e hospedagem do projeto.
 
 ---
 
-### 7. Como Executar o Projeto
+### **5. Estrutura de Pastas**
 
-Para executar o projeto localmente, siga os passos abaixo:
+O projeto foi estruturado seguindo os princípios do **Atomic Design**, visando a máxima reutilização de componentes e uma clara separação de responsabilidades.
 
-**Pré-requisitos:**
--   [Node.js](https://nodejs.org/en/) (versão 16 ou superior)
--   [Git](https://git-scm.com/)
-
-```bash
-# 1. Clone o repositório a partir do GitHub
-git clone [https://github.com/FernandoBack/Projeto-Recicla-365.git](https://github.com/FernandoBack/Projeto-Recicla-365.git)
-
-# 2. Acesse a pasta do projeto
-cd Projeto-Recicla-365
-
-# 3. Instale as dependências
-npm install
-
-# 4. Inicie o servidor de desenvolvimento
-npm run dev
-
-# 5. Abra http://localhost:5173 no seu navegador para ver a aplicação.
+```
+/src
+├── components/
+│   ├── molecules/       (Componentes complexos, ex: SummaryCard)
+│   ├── organisms/       (Seções da UI, ex: Header, PointFormModal)
+│   └── templates/       (Estruturas de página, ex: MainLayout)
+├── contexts/            (Contextos globais, ex: AuthContext)
+├── pages/               (Páginas completas da aplicação)
+└── services/            (Dados mockados e lógica de serviços)
 ```
 
 ---
 
-### 8. Melhorias Futuras
+### **6. Como Executar o Projeto**
 
--   **Integração com um Back-end real**: Substituir o `localStorage` por uma API REST e um banco de dados.
--   **Mapa Interativo**: Exibir os pontos de coleta em um mapa.
--   **Perfil de Usuário**: Página para o usuário gerenciar seus dados e histórico.
--   **Gamificação**: Sistema de pontos para incentivar a reciclagem.
--   **Testes Automatizados**: Implementação de testes para garantir a qualidade do código.
+Para executar o projeto localmente, siga os passos abaixo:
+
+1.  **Clone o repositório:**
+    ```bash
+    git clone [https://github.com/FernandoBack/Projeto-Recicla-365.git](https://github.com/FernandoBack/Projeto-Recicla-365.git)
+    ```
+2.  **Navegue até a pasta do projeto:**
+    ```bash
+    cd Projeto-Recicla-365/recicla-365
+    ```
+    *(Ajuste o caminho se a pasta que contém o `package.json` for diferente)*
+3.  **Instale as dependências:**
+    ```bash
+    npm install
+    ```
+4.  **Execute a aplicação em modo de desenvolvimento:**
+    ```bash
+    npm run dev
+    ```
+5.  Abra http://localhost:5173 (ou o endereço que aparecer no terminal) no seu navegador.
 
 ---
 
-### 9. Licença
+### **7. Melhorias Futuras**
 
-Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+Como um MVP, o projeto tem um grande potencial de evolução. Algumas melhorias planejadas são:
+- **Integração com Backend Real:** Substituir o `localStorage` por uma API RESTful para persistência de dados real.
+- **Vínculo Usuário-Local:** Implementar a lógica para associar cada ponto de coleta ao usuário que o cadastrou.
+- **Geolocalização Avançada:** Utilizar a geolocalização do navegador ou uma API de mapas (como Google Maps) para exibir os pontos em um mapa interativo.
+- **Validação de Formulários:** Adicionar uma biblioteca como `React Hook Form` com `Zod` para validações mais robustas.
+- **Testes Automatizados:** Implementar uma suíte de testes com `Vitest` e `React Testing Library` para garantir a qualidade e a estabilidade do código.
+
+---
+
+### **8. Licença**
+
+Este projeto está sob a licença MIT. Veja o arquivo `LICENSE` para mais detalhes.
