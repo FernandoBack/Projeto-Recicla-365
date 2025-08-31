@@ -1,17 +1,18 @@
 import { AppBar, Toolbar, Typography, Button, Box } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import styles from './Header.module.css';
 import { useAuth } from '../../../contexts/AuthContext';
 
 const Header = () => {
     const navigate = useNavigate();
+
+    const location = useLocation();
     const { user, logout } = useAuth();
 
     const handleLogout = () => {
         logout();
         navigate('/');
     };
-
 
     const appBarClassName = user ? styles.appBarPrivate : styles.appBarPublic;
 
@@ -22,16 +23,19 @@ const Header = () => {
                     variant="h6"
                     component="div"
                     sx={{ flexGrow: 1, cursor: 'pointer' }}
-
-                    onClick={() => navigate('/')}
+                    onClick={() => navigate(user ? '/dashboard' : '/')}
                 >
                     Recicla365 ♻️
                 </Typography>
                 <Box>
                     {user ? (
-
+                        // Botões para usuário LOGADO
                         <>
-                            <Button color="inherit" onClick={() => navigate('/dashboard')}>Dashboard</Button>
+
+                            {location.pathname !== '/dashboard' && (
+                                <Button color="inherit" onClick={() => navigate('/dashboard')}>Dashboard</Button>
+                            )}
+
                             <Button color="inherit" onClick={() => navigate('/')}>Home</Button>
                             <Button color="inherit" onClick={handleLogout}>Sair</Button>
                         </>
