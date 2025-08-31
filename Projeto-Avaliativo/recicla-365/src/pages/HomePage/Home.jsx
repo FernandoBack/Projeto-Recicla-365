@@ -3,19 +3,9 @@ import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
     const navigate = useNavigate();
-
     return (
         <Container maxWidth="md">
-            <Box
-                sx={{
-                    py: 8,
-                    textAlign: 'center',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    gap: 4
-                }}
-            >
+            <Box sx={{ py: 8, textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4 }}>
                 <Typography variant="h2" component="h1" fontWeight="bold">
                     Junte-se ao movimento Recicla365
                 </Typography>

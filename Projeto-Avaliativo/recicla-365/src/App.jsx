@@ -1,8 +1,10 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/HomePage/Home';
 import Login from './pages/LoginPage/Login';
-import ProtectedRoute from './components/ato';
-import PublicLayout from './components/templates/PublicLayout/PublicLayout';
+import Cadastro from './pages/CadastroLocalPage/Cadastro';
+import Dashboard from './pages/DashboardPage/Dashboard';
+import ProtectedRoute from './components/auth/ProtectedRoute/ProtectedRoute';
+import PublicLayout from './components/templates/PublicLayout';
 
 function App() {
   return (
