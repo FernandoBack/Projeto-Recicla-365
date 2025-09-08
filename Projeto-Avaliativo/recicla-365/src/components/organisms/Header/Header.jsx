@@ -18,7 +18,7 @@ const Header = () => {
 
                 <Box sx={{ flexGrow: 1, cursor: 'pointer' }} onClick={() => navigate('/')}>
                     <img
-                        src="/public/logo.png"
+                        src="/public/logo-1.png"
                         alt="Recicla365 Logo"
                         style={{ height: '40px', display: 'block' }}
                     />
@@ -29,7 +29,7 @@ const Header = () => {
 
                         <>
                             {location.pathname !== '/dashboard' && (
-                                <Button color="inherit" onClick={() => navigate('/dashboard')}>Gerenciar Pontos de Coleta</Button>
+                                <Button color="inherit" onClick={() => navigate('/dashboard')}>Pontos de Coleta</Button>
                             )}
 
                             <Button color="inherit" onClick={handleLogout}>Sair</Button>

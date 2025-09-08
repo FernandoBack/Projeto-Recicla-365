@@ -68,7 +68,6 @@ const Cadastro = () => {
         navigate('/login');
     };
 
-
     return (
         <div className={styles.root}>
             <Container component="main" maxWidth="md">
@@ -78,21 +77,23 @@ const Cadastro = () => {
                     </Typography>
                     <Box component="form" onSubmit={handleSubmit} noValidate>
 
+
                         <Box className={styles.formSection}>
-                            <Typography variant="h6" className={styles.sectionTitle}>
-                                Dados Pessoais
-                            </Typography>
+                            <Typography variant="h6" className={styles.sectionTitle}>Dados Pessoais</Typography>
                             <Grid container spacing={2}>
-                                <Grid item xs={12}>
+
+                                <Grid xs={12}>
                                     <TextField name="nome" required fullWidth id="nome" label="Nome Completo" autoFocus value={formData.nome} onChange={handleChange} />
                                 </Grid>
-                                <Grid item xs={12}>
+
+                                <Grid xs={12}>
                                     <TextField name="cpf" required fullWidth id="cpf" label="CPF" value={formData.cpf} onChange={handleChange} />
                                 </Grid>
-                                <Grid item xs={12} sm={6}>
+
+                                <Grid xs={12} sm={6}>
                                     <TextField name="dataNascimento" required fullWidth id="dataNascimento" label="Data de Nascimento" type="date" InputLabelProps={{ shrink: true }} value={formData.dataNascimento} onChange={handleChange} />
                                 </Grid>
-                                <Grid item xs={12} sm={6}>
+                                <Grid xs={12} sm={10}>
                                     <TextField select label="Sexo" required fullWidth id="sexo" name="sexo" value={formData.sexo} onChange={handleChange}>
                                         <MenuItem value="masculino">Masculino</MenuItem>
                                         <MenuItem value="feminino">Feminino</MenuItem>
@@ -104,34 +105,36 @@ const Cadastro = () => {
 
 
                         <Box className={styles.formSection}>
-                            <Typography variant="h6" className={styles.sectionTitle}>
-                                Acesso à Conta
-                            </Typography>
+                            <Typography variant="h6" className={styles.sectionTitle}>Acesso à Conta</Typography>
                             <Grid container spacing={2}>
-                                <Grid item xs={12}><TextField name="email" required fullWidth id="email" label="E-mail" type="email" autoComplete='email' value={formData.email} onChange={handleChange} /></Grid>
-                                <Grid item xs={12} sm={6}><TextField name="senha" required fullWidth id="senha" label="Senha" type="password" autoComplete="new-password" value={formData.senha} onChange={handleChange} /></Grid>
-                                <Grid item xs={12} sm={6}><TextField name="confirmarSenha" required fullWidth id="confirmarSenha" label="Confirmar Senha" type="password" value={formData.confirmarSenha} onChange={handleChange} /></Grid>
+                                <Grid xs={12}><TextField name="email" required fullWidth id="email" label="E-mail" type="email" autoComplete='email' value={formData.email} onChange={handleChange} /></Grid>
+                                <Grid xs={12} sm={6}><TextField name="senha" required fullWidth id="senha" label="Senha" type="password" autoComplete="new-password" value={formData.senha} onChange={handleChange} /></Grid>
+                                <Grid xs={12} sm={6}><TextField name="confirmarSenha" required fullWidth id="confirmarSenha" label="Confirmar Senha" type="password" value={formData.confirmarSenha} onChange={handleChange} /></Grid>
                             </Grid>
                         </Box>
 
 
                         <Box className={styles.formSection}>
-                            <Typography variant="h6" className={styles.sectionTitle}>
-                                Endereço
-                            </Typography>
+                            <Typography variant="h6" className={styles.sectionTitle}>Endereço</Typography>
                             <Grid container spacing={2}>
-                                <Grid item xs={12} sm={4}><TextField name="cep" required fullWidth id="cep" label="CEP" value={formData.cep} onChange={handleChange} onBlur={handleCepBlur} /></Grid>
-                                <Grid item xs={12} sm={8}><TextField name="logradouro" required fullWidth id="logradouro" label="Logradouro" value={formData.logradouro} onChange={handleChange} /></Grid>
-                                <Grid item xs={12} sm={4}><TextField name="numero" required fullWidth id="numero" label="Número" value={formData.numero} onChange={handleChange} /></Grid>
-                                <Grid item xs={12} sm={8}><TextField name="complemento" fullWidth id="complemento" label="Complemento" value={formData.complemento} onChange={handleChange} /></Grid>
-                                <Grid item xs={12} sm={4}><TextField name="bairro" required fullWidth id="bairro" label="Bairro" value={formData.bairro} onChange={handleChange} /></Grid>
-                                <Grid item xs={12} sm={4}><TextField name="cidade" required fullWidth id="cidade" label="Cidade" value={formData.cidade} onChange={handleChange} /></Grid>
-                                <Grid item xs={12} sm={4}><TextField name="uf" required fullWidth id="uf" label="Estado (UF)" value={formData.uf} onChange={handleChange} /></Grid>
+                                <Grid xs={12} sm={4}><TextField name="cep" required fullWidth id="cep" label="CEP" value={formData.cep} onChange={handleChange} onBlur={handleCepBlur} /></Grid>
+                                <Grid xs={12} sm={8}><TextField name="logradouro" required fullWidth id="logradouro" label="Logradouro" value={formData.logradouro} onChange={handleChange} /></Grid>
+                                <Grid xs={12} sm={4}><TextField name="numero" required fullWidth id="numero" label="Número" value={formData.numero} onChange={handleChange} /></Grid>
+                                <Grid xs={12} sm={8}><TextField name="complemento" fullWidth id="complemento" label="Complemento" value={formData.complemento} onChange={handleChange} /></Grid>
+                                <Grid xs={12} sm={4}><TextField name="bairro" required fullWidth id="bairro" label="Bairro" value={formData.bairro} onChange={handleChange} /></Grid>
+                                <Grid xs={12} sm={4}><TextField name="cidade" required fullWidth id="cidade" label="Cidade" value={formData.cidade} onChange={handleChange} /></Grid>
+                                <Grid xs={12} sm={4}><TextField name="uf" required fullWidth id="uf" label="Estado (UF)" value={formData.uf} onChange={handleChange} /></Grid>
                             </Grid>
                         </Box>
 
-                        <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>Cadastrar</Button>
-                        <Grid container justifyContent="flex-end"><Grid item><Link href="/login" variant="body2">Já tem uma conta? Entre</Link></Grid></Grid>
+                        <Button type="submit" fullWidth variant="contained" className={styles.submitButton}>
+                            Cadastrar
+                        </Button>
+                        <div className={styles.loginLinkContainer}>
+                            <Link href="/login" variant="body2">
+                                Já tem uma conta? Entre
+                            </Link>
+                        </div>
                     </Box>
                 </Box>
             </Container>
