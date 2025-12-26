@@ -1,21 +1,52 @@
-import { createContext, useState, useContext } from 'react';
+import { createContext, useState, useContext, useEffect } from 'react';
 
 const AuthContext = createContext(null);
 
 export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
 
-    const login = (email, password) => {
-        const usersData = JSON.parse(localStorage.getItem('recicla365_users')) || [];
-        const userFound = usersData.find(u => u.email === email && u.senha === password);
-        if (userFound) {
-            setUser(userFound);
-            return true;
+    // Ao carregar a página, verifica se já tem token salvo para manter logado
+    useEffect(() => {
+        const token = localStorage.getItem('token_jwt');
+        const savedUser = localStorage.getItem('user_email');
+        if (token && savedUser) {
+            setUser({ email: savedUser });
         }
-        return false;
+    }, []);
+
+    const login = async (email, password) => {
+        try {
+            const response = await fetch('http://localhost:8080/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                // O Back espera { email, senha }, mas a função recebe password. Ajustamos aqui:
+                body: JSON.stringify({ email: email, senha: password }) 
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                
+                // Salva o token real vindo do Java
+                localStorage.setItem('token_jwt', data.token);
+                localStorage.setItem('user_email', email);
+                
+                setUser({ email }); 
+                return true;
+            } else {
+                console.error("Falha no login: Credenciais inválidas");
+                return false;
+            }
+        } catch (error) {
+            console.error("Erro de conexão com o servidor", error);
+            return false;
+        }
     };
 
     const logout = () => {
+        localStorage.removeItem('token_jwt');
+        localStorage.removeItem('user_email');
         setUser(null);
     };
 
